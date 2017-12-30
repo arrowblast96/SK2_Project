@@ -2,7 +2,6 @@ package sample;
 
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.image.ImageView;
 import java.util.ArrayList;
@@ -18,92 +17,93 @@ public class Path {
     public Path(GridPane playground, ObservableList<Node> allChildren) {
         this.playground = playground;
         this.allChildren = allChildren;
-        path=new ArrayList<ImageView>();
-        freeField=new ArrayList<ImageView>();
+        setPath(new ArrayList<ImageView>());
+        setFreeField(new ArrayList<ImageView>());
     }
 
     public void generatePath()
     {
-        pathIndexes=new ArrayList<ArrayList<Integer>>();
+        setPathIndexes(new ArrayList<ArrayList<Integer>>());
         for(int i=0;i<40;i++){
-            pathIndexes.add(new ArrayList<Integer>());
+            getPathIndexes().add(new ArrayList<Integer>());
 
         }
         //red
         for(int i=0;i<5;i++)
         {
-            pathIndexes.get(i).add(i);
-            pathIndexes.get(i).add(6);
+            getPathIndexes().get(i).add(i);
+            getPathIndexes().get(i).add(6);
         }
         for(int i=0;i<4;i++)
         {
-            pathIndexes.get(i+5).add(4);
-            pathIndexes.get(i+5).add(7+i);
+            getPathIndexes().get(i+5).add(4);
+            getPathIndexes().get(i+5).add(7+i);
         }
-        pathIndexes.get(9).add(5);
-        pathIndexes.get(9).add(10);
+        getPathIndexes().get(9).add(5);
+        getPathIndexes().get(9).add(10);
         //blue
         for(int i=0;i<5;i++)
         {
-            pathIndexes.get(i+10).add(6);
-            pathIndexes.get(i+10).add(10-i);
+            getPathIndexes().get(i+10).add(6);
+            getPathIndexes().get(i+10).add(10-i);
         }
         for(int i=0;i<4;i++)
         {
-            pathIndexes.get(i+15).add(7+i);
-            pathIndexes.get(i+15).add(6);
+            getPathIndexes().get(i+15).add(7+i);
+            getPathIndexes().get(i+15).add(6);
         }
-        pathIndexes.get(19).add(10);
-        pathIndexes.get(19).add(5);
+        getPathIndexes().get(19).add(10);
+        getPathIndexes().get(19).add(5);
         //green
         for(int i=0;i<5;i++)
         {
-            pathIndexes.get(i+20).add(10-i);
-            pathIndexes.get(i+20).add(4);
+            getPathIndexes().get(i+20).add(10-i);
+            getPathIndexes().get(i+20).add(4);
         }
         for(int i=0;i<4;i++)
         {
-            pathIndexes.get(i+25).add(6);
-            pathIndexes.get(i+25).add(3-i);
+            getPathIndexes().get(i+25).add(6);
+            getPathIndexes().get(i+25).add(3-i);
         }
-        pathIndexes.get(29).add(5);
-        pathIndexes.get(29).add(0);
+        getPathIndexes().get(29).add(5);
+        getPathIndexes().get(29).add(0);
         //yellow
         for(int i=0;i<5;i++)
         {
-            pathIndexes.get(i+30).add(4);
-            pathIndexes.get(i+30).add(i);
+            getPathIndexes().get(i+30).add(4);
+            getPathIndexes().get(i+30).add(i);
         }
         for(int i=0;i<4;i++)
         {
-            pathIndexes.get(i+35).add(3-i);
-            pathIndexes.get(i+35).add(4);
+            getPathIndexes().get(i+35).add(3-i);
+            getPathIndexes().get(i+35).add(4);
         }
-        pathIndexes.get(39).add(0);
-        pathIndexes.get(39).add(5);
-        for (ArrayList<Integer> index: pathIndexes) {
+        getPathIndexes().get(39).add(0);
+        getPathIndexes().get(39).add(5);
+        for (ArrayList<Integer> index: getPathIndexes()) {
           for(Node child: allChildren)
           {
                   if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
-                      path.add((ImageView)child);
+                      getPath().add((ImageView)child);
                   }
           }
           }
+
     }
     public void generateFreeFields()
     {
-        freeFieldIndexes=new ArrayList<ArrayList<Integer>>();
+        setFreeFieldIndexes(new ArrayList<ArrayList<Integer>>());
         for(int i=0;i<4;i++){
-            freeFieldIndexes.add(new ArrayList<Integer>());
-            freeFieldIndexes.get(i).add(i+1);
-            freeFieldIndexes.get(i).add(5)
+            getFreeFieldIndexes().add(new ArrayList<Integer>());
+            getFreeFieldIndexes().get(i).add(i+1);
+            getFreeFieldIndexes().get(i).add(5);
 
         }
-        for (ArrayList<Integer> index: freeFieldIndexes) {
+        for (ArrayList<Integer> index: getFreeFieldIndexes()) {
             for(Node child: allChildren)
             {
                 if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
-                    freeField.add((ImageView)child);
+                    getFreeField().add((ImageView)child);
                 }
             }
         }
@@ -111,4 +111,35 @@ public class Path {
     }
 
 
+    public ArrayList<ArrayList<Integer>> getPathIndexes() {
+        return pathIndexes;
+    }
+
+    public void setPathIndexes(ArrayList<ArrayList<Integer>> pathIndexes) {
+        this.pathIndexes = pathIndexes;
+    }
+
+    public ArrayList<ArrayList<Integer>> getFreeFieldIndexes() {
+        return freeFieldIndexes;
+    }
+
+    public void setFreeFieldIndexes(ArrayList<ArrayList<Integer>> freeFieldIndexes) {
+        this.freeFieldIndexes = freeFieldIndexes;
+    }
+
+    public ArrayList<ImageView> getPath() {
+        return path;
+    }
+
+    public void setPath(ArrayList<ImageView> path) {
+        this.path = path;
+    }
+
+    public ArrayList<ImageView> getFreeField() {
+        return freeField;
+    }
+
+    public void setFreeField(ArrayList<ImageView> freeField) {
+        this.freeField = freeField;
+    }
 }

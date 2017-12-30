@@ -38,7 +38,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" GridPane.columnIndex="6">
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="0">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image></ImageView>
@@ -46,11 +46,11 @@
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image></ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="4">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="0">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image></ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="5">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="0">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image></ImageView>
@@ -188,12 +188,12 @@
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="70.0" layoutY="250.0" pickOnBounds="true" GridPane.rowIndex="4">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="70.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="250.0" pickOnBounds="true" GridPane.rowIndex="5">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="5">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image>
@@ -213,7 +213,7 @@
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="190.0" layoutY="310.0" pickOnBounds="true" GridPane.rowIndex="6">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="190.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image>
@@ -308,12 +308,12 @@
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="9">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="0">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/red.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="10">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="0">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/red.png" />
                </image>
@@ -348,12 +348,12 @@
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/blue.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="550.0" pickOnBounds="true" GridPane.rowIndex="10">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="550.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="10">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/green.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="610.0" pickOnBounds="true" GridPane.rowIndex="9">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="610.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="9">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/green.png" />
                </image>
@@ -368,17 +368,17 @@
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/green.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="10.0" pickOnBounds="true">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/yellow.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="1">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/yellow.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" GridPane.rowIndex="1">
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="1">
                <image>
                   <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/yellow.png" />
                </image>
