@@ -310,22 +310,22 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="0">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/red.png" />
+                  <Image url="@../../Pics/red.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="0">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/red.png" />
+                  <Image url="@../../Pics/red.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="1">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/red.png" />
+                  <Image url="@../../Pics/red.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="1">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/red.png" />
+                  <Image url="@../../Pics/red.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="9">

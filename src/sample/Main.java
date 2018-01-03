@@ -41,7 +41,7 @@ public class Main extends Application {
         Pawns pawns = new Pawns(playground, allChildren);
         pawns.generatePawns();
 
-        Player player = new Player(pawns, path,PawnType.GREEN);
+        Player player = new Player(pawns, path,PawnType.BLUE);
         player.adjustPawnsandPath();
 
         primaryStage.setTitle("Hello World");
@@ -52,15 +52,20 @@ public class Main extends Application {
 
             @Override
             public void run(){
+
                 while (true) {
                     try {
+
                         Thread.sleep(40);
+
+
                     } catch (InterruptedException ex) {
                     }
 
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+
                             player.startPlay();
 
                         }

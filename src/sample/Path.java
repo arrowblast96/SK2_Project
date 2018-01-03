@@ -16,7 +16,7 @@ public class Path {
     private ArrayList<ImageView> freeField;
     public Path(GridPane playground, ObservableList<Node> allChildren) {
         this.playground = playground;
-        this.allChildren = allChildren;
+        this.setAllChildren(allChildren);
         setPath(new ArrayList<ImageView>());
         setFreeField(new ArrayList<ImageView>());
     }
@@ -81,7 +81,7 @@ public class Path {
         getPathIndexes().get(39).add(0);
         getPathIndexes().get(39).add(5);
         for (ArrayList<Integer> index: getPathIndexes()) {
-          for(Node child: allChildren)
+          for(Node child: getAllChildren())
           {
                   if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
                       getPath().add((ImageView)child);
@@ -100,7 +100,7 @@ public class Path {
 
         }
         for (ArrayList<Integer> index: getFreeFieldIndexes()) {
-            for(Node child: allChildren)
+            for(Node child: getAllChildren())
             {
                 if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
                     getFreeField().add((ImageView)child);
@@ -141,5 +141,13 @@ public class Path {
 
     public void setFreeField(ArrayList<ImageView> freeField) {
         this.freeField = freeField;
+    }
+
+    public ObservableList<Node> getAllChildren() {
+        return allChildren;
+    }
+
+    public void setAllChildren(ObservableList<Node> allChildren) {
+        this.allChildren = allChildren;
     }
 }

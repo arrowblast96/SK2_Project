@@ -43,7 +43,13 @@ public class Pawns {
             }
         }
     }
+    public void deletePawn(Integer n)
+    {
+        pawnsIndexes.remove(n);
+        pawnsList.remove(n);
+        chosen.remove(n);
 
+    }
 
     public ArrayList<ArrayList<Integer>> getPawnsIndexes() {
         return pawnsIndexes;
