@@ -40,272 +40,272 @@
          <children>
             <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="0">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="0">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="0">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="130.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="130.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="130.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="3">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="190.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="130.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="190.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="250.0" layoutY="130.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image></ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="190.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="430.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="430.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="7" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="430.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="490.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="490.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="490.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="490.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="490.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="500.0" layoutY="260.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="500.0" layoutY="320.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="610.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="610.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="250.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="190.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="130.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="70.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="4">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="70.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="130.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="190.0" layoutY="310.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="140.0" layoutY="320.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="370.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="70.0" layoutY="370.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="130.0" layoutY="370.0" pickOnBounds="true" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="190.0" layoutY="370.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="250.0" layoutY="370.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="8">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="200.0" layoutY="380.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="6">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="260.0" layoutY="380.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="10">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="210.0" layoutY="390.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="9">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="270.0" layoutY="390.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="8">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="220.0" layoutY="400.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="280.0" layoutY="400.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="7">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="230.0" layoutY="410.0" pickOnBounds="true" GridPane.columnIndex="4" GridPane.rowIndex="7">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="490.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="8">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="490.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="9">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="310.0" layoutY="550.0" pickOnBounds="true" GridPane.columnIndex="5" GridPane.rowIndex="10">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="490.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="9">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="370.0" layoutY="550.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.rowIndex="10">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/empty.png" />
+                  <Image url="@../../Pics/empty.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="250.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="0">
@@ -330,62 +330,62 @@
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="9">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/blue.png" />
+                  <Image url="@../../Pics/blue.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="550.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="10">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/blue.png" />
+                  <Image url="@../../Pics/blue.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="560.0" layoutY="80.0" pickOnBounds="true" GridPane.columnIndex="10" GridPane.rowIndex="9">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/blue.png" />
+                  <Image url="@../../Pics/blue.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="560.0" layoutY="560.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.rowIndex="10">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/blue.png" />
+                  <Image url="@../../Pics/blue.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="550.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="10">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/green.png" />
+                  <Image url="@../../Pics/green.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="610.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="9">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/green.png" />
+                  <Image url="@../../Pics/green.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="550.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/green.png" />
+                  <Image url="@../../Pics/green.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="70.0" layoutY="550.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="10">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/green.png" />
+                  <Image url="@../../Pics/green.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/yellow.png" />
+                  <Image url="@../../Pics/yellow.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/yellow.png" />
+                  <Image url="@../../Pics/yellow.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" GridPane.columnIndex="0" GridPane.rowIndex="1">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/yellow.png" />
+                  <Image url="@../../Pics/yellow.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <image>
-                  <Image url="file:/C:/Users/Robert%20W/SK2_Project/Pics/yellow.png" />
+                  <Image url="@../../Pics/yellow.png" />
                </image>
             </ImageView>
          </children>
