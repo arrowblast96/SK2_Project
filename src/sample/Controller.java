@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+import javax.swing.text.html.ImageView;
 import java.awt.event.InputEvent;
 import java.beans.EventHandler;
 import java.net.URL;
@@ -16,6 +17,9 @@ public class Controller{
     @FXML
     private VBox box;
 
+
+    @FXML
+    private ImageView kolejka;
 
     public GridPane getPlayground() {
         return playground;
@@ -32,6 +36,14 @@ public class Controller{
 
     public void setBox(VBox box) {
         this.box = box;
+    }
+
+    public ImageView getKolejka() {
+        return kolejka;
+    }
+
+    public void setKolejka(ImageView kolejka) {
+        this.kolejka = kolejka;
     }
 
 }

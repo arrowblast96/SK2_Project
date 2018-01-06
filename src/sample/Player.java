@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,12 +17,17 @@ public class Player {
     private Path playerPath;
     private int number=6;
     private PawnType color;
+    private Socket socket;
 
-    public Player(Pawns playerPawns, Path playerPath ,PawnType color) {
-        this.setPlayerPawns(playerPawns);
-        this.setPlayerPath(playerPath);
-        this.setColor(color);
+    public Player(Pawns playerPawns, Path playerPath, PawnType color, Socket socket) {
+        this.playerPawns = playerPawns;
+        this.playerPath = playerPath;
+
+        this.color = color;
+        this.socket = socket;
     }
+
+
     public void swipePath(Integer n)
     {
         ArrayList<ArrayList<Integer>> newPathIndex=new ArrayList<>();
@@ -160,26 +166,15 @@ public class Player {
                 break;
             }
         }
-        for (int i = 0; i < getPlayerPawns().getPawnsList().size(); i++) {
-            int finalI = i;
-            getPlayerPawns().getPawnsList().get(i).setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    getPlayerPawns().getChosen().set(finalI, true);
-                    event.consume();
-                }
-            });
-        }
+
     }
-    public void startPlay()
+    public boolean startPlay()
     {
 
             for (int i = 0; i < getPlayerPawns().getPawnsList().size(); i++) {
 
                 if (getPlayerPawns().getChosen().get(i) == true) {
-                    Random rd=new Random();
 
-                    setNumber(rd.nextInt(6)+1);
 
                     System.out.println(getNumber());
                     ImageView pawn = getPlayerPawns().getPawnsList().get(i);
@@ -191,9 +186,11 @@ public class Player {
                         if (getPlayerPath().getPath().get(j) == pawn) {
                             System.out.println("On path");
                             to_where = getPlayerPath().getPath().get(min(j + getNumber(), getPlayerPath().getPath().size()-1));
-                            setNumber(getNumber() -(getPlayerPath().getPath().indexOf(to_where)- getPlayerPath().getPath().indexOf(pawn)));
+                            if (!playerPawns.getPawnsList().contains(to_where)){
+                                setNumber(getNumber() - (getPlayerPath().getPath().indexOf(to_where) - getPlayerPath().getPath().indexOf(pawn)));
 
-                            ok_path = true;
+                                ok_path = true;
+                            }
                             break;
                         }
                     }
@@ -240,13 +237,26 @@ public class Player {
                             move(pawn,from);
                             getPlayerPath().getFreeField().set(getPlayerPath().getFreeField().indexOf(from),pawn);
                             getPlayerPath().getPath().set(getPlayerPath().getPath().indexOf(pawn),from);
+                            if(playerPath.getFreeField().indexOf(pawn)+1==playerPath.getFreeField().size())
+                            {
+                                getPlayerPawns().deletePawn(getPlayerPawns().getPawnsList().indexOf(pawn));
+                                pawn.setOnMouseClicked(
+                                        null
+                                );
+                                getPlayerPath().getFreeField().remove(getPlayerPath().getFreeField().size()-1);
+                            }
                         }
                     }
                     System.out.println("Moved");
                     getPlayerPawns().getChosen().set(i, false);
+                    return true;
+
                 }
+
             }
-        }
+            return false;
+
+    }
 
     private void move(ImageView pawn,ImageView place)
     {
@@ -290,5 +300,13 @@ public class Player {
 
     public void setColor(PawnType color) {
         this.color = color;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
     }
 }

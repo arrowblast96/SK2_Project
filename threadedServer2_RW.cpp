@@ -39,22 +39,45 @@ vector<pthread_t *> threads;
 void *ThreadBehavior(void *t_data)
 {
 	srand(time(NULL));
-
+    int check_connection=0;
     pthread_detach(pthread_self());
     struct thread_data_t *th_data = (struct thread_data_t*)t_data;
 
 
+    int i = sesja[th_data->session_number]->sockets.size()-1;
+
+    stringstream in;
+    in << i;
+    sesja[th_data->session_number]->buf[i]=in.str();
+    check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),1);
+    if(check_connection==-1)
+    {
+        pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+        close(sesja[th_data->session_number]->sockets[i]);
+        sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+        sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+        printf("Usunięty\n");
+
+
+    }
+
+
     while(1)
     {
+        int wylosowany=0;
 
-
-    	for(int i=0;i<sesja[th_data->session_number]->sockets.size();)
+    	for(int i=0;i<sesja[th_data->session_number]->sockets.size();i++)
     	{
-    		while(sesja[th_data->session_number]->sockets.size()==1);
+    	    if(wylosowany==6)
+    	    {
+    	    i--;
+    	    }
+            while(sesja[th_data->session_number]->sockets.size()==1);
     		pthread_mutex_lock(&sesja[th_data->session_number]->mutex);
+    		if
     		sesja[th_data->session_number]->buf[i]="Twoja tura\n";
-    		int check_connection=0;
-    		check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),1000);
+
+    		check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),11);
     		if(check_connection==-1)
     		{
     			pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
@@ -66,7 +89,7 @@ void *ThreadBehavior(void *t_data)
     			continue;
     		}
     		char *reader=new char[1000];
-    		check_connection=read(sesja[th_data->session_number]->sockets[i],reader,1000);
+    		check_connection=read(sesja[th_data->session_number]->sockets[i],reader,11);
     		if(check_connection==0)
     		{
     			pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
@@ -76,6 +99,7 @@ void *ThreadBehavior(void *t_data)
     			printf("Usunięty\n");
     		    continue;
     		}
+    		printf("%s\n",reader);
     		sesja[th_data->session_number]->buf[i].clear();
 
     		int wylosowany=1+rand()%6;
@@ -83,9 +107,30 @@ void *ThreadBehavior(void *t_data)
     		input << wylosowany;
     		sesja[th_data->session_number]->buf[i]=input.str();
 
-    		write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),1000);
+    		check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),1);
+            if(check_connection==-1)
+            {
+                pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+                close(sesja[th_data->session_number]->sockets[i]);
+                sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+                sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+                printf("Usunięty\n");
+
+                continue;
+            }
+            check_connection=read(sesja[th_data->session_number]->sockets[i],reader,6);
+            if(check_connection==0)
+            {
+                 pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+                 close(sesja[th_data->session_number]->sockets[i]);
+                 sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+                 sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+                 printf("Usunięty\n");
+                 continue;
+            }
     		pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
-    		i++;
+    		printf("Wysłany\n");
+
     	}
     	
 

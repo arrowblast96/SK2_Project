@@ -14,13 +14,14 @@ import javafx.stage.Stage;
 
 import javafx.scene.image.ImageView;
 
+import java.net.Socket;
 import java.util.ArrayList;
 
 public class Main extends Application {
 
     private GridPane playground;
     private ObservableList<Node> allChildren;
-
+    private ImageView kolejka;
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
@@ -32,7 +33,7 @@ public class Main extends Application {
         playground = (GridPane) loader.getNamespace().get("playground");
         System.out.println(playground);
         allChildren = playground.getChildren();
-
+        kolejka=(ImageView) loader.getNamespace().get("kolejka");
 
         Path path = new Path(playground, allChildren);
 
@@ -41,13 +42,19 @@ public class Main extends Application {
         Pawns pawns = new Pawns(playground, allChildren);
         pawns.generatePawns();
 
-        Player player = new Player(pawns, path,PawnType.BLUE);
+        Player player = new Player(pawns, path,PawnType.RED,new Socket("localhost",1234));
         player.adjustPawnsandPath();
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(scene);
 
-        primaryStage.show();
+
+
+        TCP_Client client=new TCP_Client(player,kolejka);
+
+
+
+
         Thread renderer = new Thread(){
 
             @Override
@@ -66,7 +73,7 @@ public class Main extends Application {
                         @Override
                         public void run() {
 
-                            player.startPlay();
+                            primaryStage.show();
 
                         }
                     });
@@ -76,6 +83,14 @@ public class Main extends Application {
 
         renderer.setDaemon(true);
         renderer.start();
+        Thread game=new Thread(client);
+        game.start();
+
+
+
+
+
+
 
 
 
