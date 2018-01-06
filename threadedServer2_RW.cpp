@@ -61,34 +61,40 @@ void *ThreadBehavior(void *t_data)
 
     }
 
-
-    while(1)
+    int tura=0;
+    char *reader=new char[187];
+    while(sesja[th_data->session_number]->sockets.size()>0)
     {
         int wylosowany=0;
 
-    	for(int i=0;i<sesja[th_data->session_number]->sockets.size();i++)
+        while(sesja[th_data->session_number]->sockets.size()!=2);
+
+    	for(int i=0;i<sesja[th_data->session_number]->sockets.size();)
     	{
-    	    if(wylosowany==6)
-    	    {
-    	    i--;
-    	    }
-            while(sesja[th_data->session_number]->sockets.size()==1);
-    		pthread_mutex_lock(&sesja[th_data->session_number]->mutex);
-    		if
-    		sesja[th_data->session_number]->buf[i]="Twoja tura\n";
 
-    		check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),11);
-    		if(check_connection==-1)
-    		{
-    			pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
-    			close(sesja[th_data->session_number]->sockets[i]);
-    			sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
-    			sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
-    			printf("Usunięty\n");
 
-    			continue;
-    		}
-    		char *reader=new char[1000];
+
+
+
+             pthread_mutex_lock(&sesja[th_data->session_number]->mutex);
+
+            if(i==tura%sesja[th_data->session_number]->sockets.size())
+            {
+
+            sesja[th_data->session_number]->buf[i]="Twoja tura\n";
+
+            check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),11);
+            if(check_connection==-1)
+            {
+                     pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+                     close(sesja[th_data->session_number]->sockets[i]);
+                     sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+                     sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+                     printf("Usunięty\n");
+
+                     continue;
+            }
+
     		check_connection=read(sesja[th_data->session_number]->sockets[i],reader,11);
     		if(check_connection==0)
     		{
@@ -102,7 +108,7 @@ void *ThreadBehavior(void *t_data)
     		printf("%s\n",reader);
     		sesja[th_data->session_number]->buf[i].clear();
 
-    		int wylosowany=1+rand()%6;
+    		wylosowany=1+rand()%6;
     		stringstream input;
     		input << wylosowany;
     		sesja[th_data->session_number]->buf[i]=input.str();
@@ -118,21 +124,63 @@ void *ThreadBehavior(void *t_data)
 
                 continue;
             }
-            check_connection=read(sesja[th_data->session_number]->sockets[i],reader,6);
+
+            check_connection=read(sesja[th_data->session_number]->sockets[i],reader,208);
             if(check_connection==0)
             {
-                 pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
-                 close(sesja[th_data->session_number]->sockets[i]);
-                 sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
-                 sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
-                 printf("Usunięty\n");
-                 continue;
+                  pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+                  close(sesja[th_data->session_number]->sockets[i]);
+                  sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+                  sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+                  printf("Usunięty\n");
+                  continue;
             }
-    		pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+
+            if(wylosowany!=6)
+            {
+                    i++;
+            }
+
+            }
+            else
+            {
+
+                        check_connection=write(sesja[th_data->session_number]->sockets[i],reader,208);
+                        if(check_connection==-1)
+                        {
+                                 pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+                                 close(sesja[th_data->session_number]->sockets[i]);
+                                 sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+                                 sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+                                 printf("Usunięty\n");
+
+                                 continue;
+                        }
+                        char *end=new char[6];
+              check_connection=read(sesja[th_data->session_number]->sockets[i],end,6);
+                  		if(check_connection==0)
+                  		{
+                  			pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+                  			close(sesja[th_data->session_number]->sockets[i]);
+                  			sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+                  			sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+                  			printf("Usunięty\n");
+                  		    continue;
+                  		}
+                  		printf("%s\n",reader);
+                if(wylosowany!=6)
+                {
+                               i++;
+                }
+
+            }
+
     		printf("Wysłany\n");
+            printf("%d\n",tura);
+            pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
 
     	}
-    	
+    	tura++;
 
     }
 

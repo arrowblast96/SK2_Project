@@ -394,6 +394,11 @@
                   <Image url="file:/home/osboxes/Desktop/SK2_Project/Pics/yellow.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="dice" fitHeight="60.0" fitWidth="60.0" layoutX="550.0" layoutY="70.0" pickOnBounds="true" GridPane.columnIndex="8" GridPane.rowIndex="2">
+               <image>
+                  <Image url="file:/home/osboxes/Desktop/SK2_Project/Pics/empty.png" />
+               </image>
+            </ImageView>
          </children>
       </GridPane>
    </children>

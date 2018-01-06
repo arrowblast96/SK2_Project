@@ -14,8 +14,9 @@ import static java.lang.Math.min;
 
 public class Player {
     private Pawns playerPawns;
+    private ArrayList<Pawns> allPawns;
     private Path playerPath;
-    private int number=6;
+    private int number;
     private PawnType color;
     private Socket socket;
 
@@ -198,6 +199,10 @@ public class Player {
                         System.out.println("On board");
                         ImageView from= getPlayerPath().getPath().get(0);
 
+                        ArrayList<Integer> playerIndexes=getPlayerPawns().getPawnsIndexes().get(getPlayerPawns().getPawnsList().indexOf(pawn));
+                        ArrayList<Integer> fromIndexes=getPlayerPath().getPathIndexes().get(getPlayerPath().getPath().indexOf(from));
+                        getPlayerPath().getPathIndexes().set(0,playerIndexes);
+                        getPlayerPawns().getPawnsIndexes().set(getPlayerPawns().getPawnsList().indexOf(pawn),fromIndexes);
                         getPlayerPath().getPath().set(0,pawn);
                         move(pawn, from);
                     }
@@ -205,9 +210,14 @@ public class Player {
                     {
                         System.out.println("On Free Field");
                         Integer pawnIndex= getPlayerPath().getFreeField().indexOf(pawn);
+                        ArrayList<Integer> pawnIndexes=getPlayerPath().getFreeFieldIndexes().get(pawnIndex);
                         if(getNumber() <=(getPlayerPath().getFreeField().size()-1)-pawnIndex)
                         {
                             ImageView to_what= getPlayerPath().getFreeField().get(pawnIndex+ getNumber());
+                            ArrayList<Integer> to_whatIndexes=getPlayerPath().getFreeFieldIndexes().get(getPlayerPath().getFreeField().indexOf(to_what));
+                            getPlayerPath().getFreeFieldIndexes().set(getPlayerPath().getFreeField().indexOf(to_what),pawnIndexes);
+                            getPlayerPawns().getPawnsIndexes().set(getPlayerPath().getFreeField().indexOf(pawn),to_whatIndexes);
+
                             move(pawn,to_what);
                             getPlayerPath().getFreeField().set(pawnIndex+ getNumber(),pawn);
                             getPlayerPath().getFreeField().set(pawnIndex,to_what);
@@ -226,17 +236,30 @@ public class Player {
                     }
                     else if(ok_path==true) {
                         System.out.println("Try");
-                        move(pawn, to_where);
+
                         Integer pawnIndex= getPlayerPath().getPath().indexOf(pawn);
                         Integer to_where_index= getPlayerPath().getPath().indexOf(to_where);
+                        ArrayList<Integer> playerIndexes=getPlayerPath().getPathIndexes().get(pawnIndex);
+                        ArrayList<Integer> to_whereIndexes=getPlayerPath().getPathIndexes().get(to_where_index);
+                        getPlayerPath().getPathIndexes().set(to_where_index,playerIndexes);
+                        getPlayerPawns().getPawnsIndexes().set(pawnIndex,to_whereIndexes);
+
                         getPlayerPath().getPath().set(to_where_index,pawn);
                         getPlayerPath().getPath().set(pawnIndex,to_where);
+                        move(pawn, to_where);
                         if(getNumber() >=1 && getNumber() <=4)
                         {
                             ImageView from= getPlayerPath().getFreeField().get(getNumber() -1);
-                            move(pawn,from);
+                            pawnIndex= getPlayerPath().getPath().indexOf(pawn);
+                            Integer fromindex= getPlayerPath().getFreeField().indexOf(to_where);
+                            playerIndexes=getPlayerPath().getPathIndexes().get(pawnIndex);
+                            ArrayList<Integer> fromIndexes=getPlayerPath().getFreeFieldIndexes().get(to_where_index);
+
+                            getPlayerPath().getFreeFieldIndexes().set(fromindex,playerIndexes);
+                            getPlayerPawns().getPawnsIndexes().set(pawnIndex,fromIndexes);
                             getPlayerPath().getFreeField().set(getPlayerPath().getFreeField().indexOf(from),pawn);
                             getPlayerPath().getPath().set(getPlayerPath().getPath().indexOf(pawn),from);
+                            move(pawn,from);
                             if(playerPath.getFreeField().indexOf(pawn)+1==playerPath.getFreeField().size())
                             {
                                 getPlayerPawns().deletePawn(getPlayerPawns().getPawnsList().indexOf(pawn));

@@ -2,10 +2,14 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import javax.swing.text.html.ImageView;
+
+
 import java.awt.event.InputEvent;
 import java.beans.EventHandler;
 import java.net.URL;
@@ -18,8 +22,15 @@ public class Controller{
     private VBox box;
 
 
+
+    @FXML
+    private ImageView dice;
+
+
     @FXML
     private ImageView kolejka;
+
+
 
     public GridPane getPlayground() {
         return playground;
@@ -45,5 +56,13 @@ public class Controller{
     public void setKolejka(ImageView kolejka) {
         this.kolejka = kolejka;
     }
+    public ImageView getDice() {
+        return dice;
+    }
+
+    public void setDice(ImageView dice) {
+        this.dice = dice;
+    }
+
 
 }
