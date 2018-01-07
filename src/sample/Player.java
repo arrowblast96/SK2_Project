@@ -49,20 +49,15 @@ public class Player {
             case BLUE:
             {
                 swipePath(10);
-                getPlayerPawns().setPawnsIndexes(new ArrayList<ArrayList<Integer>>());
-                for(int i=0;i<4;i++){
-                    getPlayerPawns().getPawnsIndexes().add(new ArrayList<Integer>());
-                    getPlayerPawns().getPawnsIndexes().get(i).add((Integer)(9+(i/2)));
-                    getPlayerPawns().getPawnsIndexes().get(i).add(9+i%2);
-
-                }
+                getPlayerPawns().setColor(1);
                 getPlayerPawns().setPawnsList(new ArrayList<>());
-                for (ArrayList<Integer> index: getPlayerPawns().getPawnsIndexes()) {
+                getPlayerPawns().setClickList(new ArrayList<>());
+                for (ArrayList<Integer> index: getPlayerPawns().getAllPawnsIndexes().get(1)) {
                     for(Node child: getPlayerPawns().getAllChildren())
                     {
                         if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
                             getPlayerPawns().getPawnsList().add((ImageView)child);
-
+                            getPlayerPawns().getClickList().add((ImageView)child);
                             break;
                         }
                     }
@@ -80,6 +75,7 @@ public class Player {
                     {
                         if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
                             getPlayerPath().getFreeField().add((ImageView)child);
+                            getPlayerPawns().getClickList().add((ImageView)child);
                             break;
                         }
                     }
@@ -89,19 +85,15 @@ public class Player {
             case GREEN:
             {
                 swipePath(20);
-                getPlayerPawns().setPawnsIndexes(new ArrayList<ArrayList<Integer>>());
-                for(int i=0;i<4;i++){
-                    getPlayerPawns().getPawnsIndexes().add(new ArrayList<Integer>());
-                    getPlayerPawns().getPawnsIndexes().get(i).add((Integer)(9+(i/2)));
-                    getPlayerPawns().getPawnsIndexes().get(i).add(i%2);
-
-                }
+                getPlayerPawns().setColor(2);
                 getPlayerPawns().setPawnsList(new ArrayList<>());
-                for (ArrayList<Integer> index: getPlayerPawns().getPawnsIndexes()) {
+                getPlayerPawns().setClickList(new ArrayList<>());
+                for (ArrayList<Integer> index: getPlayerPawns().getAllPawnsIndexes().get(2)) {
                     for(Node child: getPlayerPawns().getAllChildren())
                     {
                         if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
                             getPlayerPawns().getPawnsList().add((ImageView)child);
+                            getPlayerPawns().getClickList().add((ImageView)child);
 
                             break;
                         }
@@ -120,6 +112,7 @@ public class Player {
                     {
                         if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
                             getPlayerPath().getFreeField().add((ImageView)child);
+                            getPlayerPawns().getClickList().add((ImageView)child);
                             break;
                         }
                     }
@@ -129,15 +122,10 @@ public class Player {
             case YELLOW:
             {
                 swipePath(30);
-                getPlayerPawns().setPawnsIndexes(new ArrayList<ArrayList<Integer>>());
-                for(int i=0;i<4;i++){
-                    getPlayerPawns().getPawnsIndexes().add(new ArrayList<Integer>());
-                    getPlayerPawns().getPawnsIndexes().get(i).add((Integer)(i/2));
-                    getPlayerPawns().getPawnsIndexes().get(i).add(i%2);
-
-                }
+                getPlayerPawns().setColor(3);
                 getPlayerPawns().setPawnsList(new ArrayList<>());
-                for (ArrayList<Integer> index: getPlayerPawns().getPawnsIndexes()) {
+                getPlayerPawns().setClickList(new ArrayList<>());
+                for (ArrayList<Integer> index: getPlayerPawns().getAllPawnsIndexes().get(3)) {
                     for(Node child: getPlayerPawns().getAllChildren())
                     {
                         if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
@@ -172,112 +160,120 @@ public class Player {
     public boolean startPlay()
     {
 
-            for (int i = 0; i < getPlayerPawns().getPawnsList().size(); i++) {
+        for (int i = 0; i < getPlayerPawns().getPawnsList().size(); i++) {
 
-                if (getPlayerPawns().getChosen().get(i) == true) {
+            if (getPlayerPawns().getChosen().get(i) == true) {
 
 
-                    System.out.println(getNumber());
-                    ImageView pawn = getPlayerPawns().getPawnsList().get(i);
-                    Boolean ok_path = false;
+                System.out.println(getNumber());
+                ImageView pawn = getPlayerPawns().getClickList().get(i);
+                Boolean ok_path = false;
 
-                    ImageView to_where = null;
+                ImageView to_where = null;
 
-                    for (int j = 0; j < getPlayerPath().getPath().size(); j++) {
-                        if (getPlayerPath().getPath().get(j) == pawn) {
-                            System.out.println("On path");
-                            to_where = getPlayerPath().getPath().get(min(j + getNumber(), getPlayerPath().getPath().size()-1));
-                            if (!playerPawns.getPawnsList().contains(to_where)){
-                                setNumber(getNumber() - (getPlayerPath().getPath().indexOf(to_where) - getPlayerPath().getPath().indexOf(pawn)));
 
-                                ok_path = true;
-                            }
-                            break;
-                        }
-                    }
-                    if (ok_path == false && getNumber() ==6 && !getPlayerPath().getFreeField().contains(pawn)) {
-                        System.out.println("On board");
-                        ImageView from= getPlayerPath().getPath().get(0);
+                if (getPlayerPath().getPath().contains(pawn)) {
+                        System.out.println("On path");
+                        to_where = getPlayerPath().getPath().get(min(getPlayerPath().getPath().indexOf(pawn) + getNumber(), getPlayerPath().getPath().size()-1));
+                       /*if (!playerPawns.getPawnsList().contains(to_where)){
+                       setNumber(getNumber() - (getPlayerPath().getPath().indexOf(to_where) - getPlayerPath().getPath().indexOf(pawn)));
 
-                        ArrayList<Integer> playerIndexes=getPlayerPawns().getPawnsIndexes().get(getPlayerPawns().getPawnsList().indexOf(pawn));
-                        ArrayList<Integer> fromIndexes=getPlayerPath().getPathIndexes().get(getPlayerPath().getPath().indexOf(from));
-                        getPlayerPath().getPathIndexes().set(0,playerIndexes);
-                        getPlayerPawns().getPawnsIndexes().set(getPlayerPawns().getPawnsList().indexOf(pawn),fromIndexes);
-                        getPlayerPath().getPath().set(0,pawn);
-                        move(pawn, from);
-                    }
-                    else if(ok_path==false && getPlayerPath().getFreeField().contains(pawn))
-                    {
-                        System.out.println("On Free Field");
-                        Integer pawnIndex= getPlayerPath().getFreeField().indexOf(pawn);
-                        ArrayList<Integer> pawnIndexes=getPlayerPath().getFreeFieldIndexes().get(pawnIndex);
-                        if(getNumber() <=(getPlayerPath().getFreeField().size()-1)-pawnIndex)
-                        {
-                            ImageView to_what= getPlayerPath().getFreeField().get(pawnIndex+ getNumber());
-                            ArrayList<Integer> to_whatIndexes=getPlayerPath().getFreeFieldIndexes().get(getPlayerPath().getFreeField().indexOf(to_what));
-                            getPlayerPath().getFreeFieldIndexes().set(getPlayerPath().getFreeField().indexOf(to_what),pawnIndexes);
-                            getPlayerPawns().getPawnsIndexes().set(getPlayerPath().getFreeField().indexOf(pawn),to_whatIndexes);
+                            ok_path = true;
+                        }*/
+                        setNumber(getNumber() - (getPlayerPath().getPath().indexOf(to_where) - getPlayerPath().getPath().indexOf(pawn)));
 
-                            move(pawn,to_what);
-                            getPlayerPath().getFreeField().set(pawnIndex+ getNumber(),pawn);
-                            getPlayerPath().getFreeField().set(pawnIndex,to_what);
-                            setNumber(getNumber() -((getPlayerPath().getFreeField().size()-1)-pawnIndex));
-
-                            if(getNumber() ==0)
-                            {
-                                getPlayerPawns().deletePawn(getPlayerPawns().getPawnsList().indexOf(pawn));
-                                pawn.setOnMouseClicked(
-                                        null
-                                );
-                                getPlayerPath().getFreeField().remove(getPlayerPath().getFreeField().size()-1);
-                            }
-                        }
-
-                    }
-                    else if(ok_path==true) {
-                        System.out.println("Try");
-
-                        Integer pawnIndex= getPlayerPath().getPath().indexOf(pawn);
-                        Integer to_where_index= getPlayerPath().getPath().indexOf(to_where);
-                        ArrayList<Integer> playerIndexes=getPlayerPath().getPathIndexes().get(pawnIndex);
-                        ArrayList<Integer> to_whereIndexes=getPlayerPath().getPathIndexes().get(to_where_index);
-                        getPlayerPath().getPathIndexes().set(to_where_index,playerIndexes);
-                        getPlayerPawns().getPawnsIndexes().set(pawnIndex,to_whereIndexes);
-
-                        getPlayerPath().getPath().set(to_where_index,pawn);
-                        getPlayerPath().getPath().set(pawnIndex,to_where);
-                        move(pawn, to_where);
-                        if(getNumber() >=1 && getNumber() <=4)
-                        {
-                            ImageView from= getPlayerPath().getFreeField().get(getNumber() -1);
-                            pawnIndex= getPlayerPath().getPath().indexOf(pawn);
-                            Integer fromindex= getPlayerPath().getFreeField().indexOf(to_where);
-                            playerIndexes=getPlayerPath().getPathIndexes().get(pawnIndex);
-                            ArrayList<Integer> fromIndexes=getPlayerPath().getFreeFieldIndexes().get(to_where_index);
-
-                            getPlayerPath().getFreeFieldIndexes().set(fromindex,playerIndexes);
-                            getPlayerPawns().getPawnsIndexes().set(pawnIndex,fromIndexes);
-                            getPlayerPath().getFreeField().set(getPlayerPath().getFreeField().indexOf(from),pawn);
-                            getPlayerPath().getPath().set(getPlayerPath().getPath().indexOf(pawn),from);
-                            move(pawn,from);
-                            if(playerPath.getFreeField().indexOf(pawn)+1==playerPath.getFreeField().size())
-                            {
-                                getPlayerPawns().deletePawn(getPlayerPawns().getPawnsList().indexOf(pawn));
-                                pawn.setOnMouseClicked(
-                                        null
-                                );
-                                getPlayerPath().getFreeField().remove(getPlayerPath().getFreeField().size()-1);
-                            }
-                        }
-                    }
-                    System.out.println("Moved");
-                    getPlayerPawns().getChosen().set(i, false);
-                    return true;
+                        ok_path = true;
 
                 }
 
+                System.out.println(ok_path);
+                if (ok_path == false && getNumber() ==6 && !getPlayerPath().getFreeField().contains(pawn)) {
+                    System.out.println("On board");
+                    ImageView from= getPlayerPath().getPath().get(0);
+
+                    ArrayList<Integer> playerIndexes=getPlayerPawns().getAllPawnsIndexes().get(getPlayerPawns().getColor()).get(i);
+                    ArrayList<Integer> fromIndexes=getPlayerPath().getPathIndexes().get(getPlayerPath().getPath().indexOf(from));
+                    getPlayerPath().getPathIndexes().set(0,playerIndexes);
+                    getPlayerPawns().getAllPawnsIndexes().get(getPlayerPawns().getColor()).set(i,fromIndexes);
+                    getPlayerPawns().getPawnsList().set(i,from);
+
+                    getPlayerPath().getPath().set(0,pawn);
+
+                    move(pawn, from);
+                }
+                else if(ok_path==false && getPlayerPath().getFreeField().contains(pawn))
+                {
+                    System.out.println("On Free Field");
+                    Integer pawnIndex= getPlayerPath().getFreeField().indexOf(pawn);
+                    ArrayList<Integer> pawnIndexes=getPlayerPawns().getAllPawnsIndexes().get(playerPawns.getColor()).get(i);
+                    if(getNumber() <=(getPlayerPath().getFreeField().size()-1)-pawnIndex)
+                    {
+                        ImageView to_what= getPlayerPath().getFreeField().get(pawnIndex+ getNumber());
+                        ArrayList<Integer> to_whatIndexes=getPlayerPath().getFreeFieldIndexes().get(getPlayerPath().getFreeField().indexOf(to_what));
+                        getPlayerPath().getFreeFieldIndexes().set(getPlayerPath().getFreeField().indexOf(to_what),pawnIndexes);
+                        getPlayerPawns().getAllPawnsIndexes().get(getPlayerPawns().getColor()).set(i,to_whatIndexes);
+
+
+                        getPlayerPath().getFreeField().set(pawnIndex+ getNumber(),pawn);
+                        getPlayerPath().getFreeField().set(pawnIndex,to_what);
+                        move(pawn,to_what);
+                        setNumber(getNumber() -((getPlayerPath().getFreeField().size()-1)-pawnIndex));
+
+                        if(getNumber() ==0)
+                        {
+                            getPlayerPawns().deletePawn(getPlayerPawns().getClickList().indexOf(pawn));
+                            pawn.setOnMouseClicked(
+                                    null
+                            );
+                            getPlayerPath().getFreeField().remove(getPlayerPath().getFreeField().size()-1);
+                        }
+                    }
+
+                }
+                else if(ok_path==true) {
+                    System.out.println("Try");
+
+                    Integer pawnIndex= getPlayerPath().getPath().indexOf(pawn);
+                    Integer to_where_index= getPlayerPath().getPath().indexOf(to_where);
+                    ArrayList<Integer> playerIndexes=getPlayerPawns().getAllPawnsIndexes().get(playerPawns.getColor()).get(i);
+                    ArrayList<Integer> to_whereIndexes=getPlayerPath().getPathIndexes().get(to_where_index);
+                    getPlayerPath().getPathIndexes().set(to_where_index,playerIndexes);
+                    getPlayerPawns().getAllPawnsIndexes().get(playerPawns.getColor()).set(i,to_whereIndexes);
+
+                    getPlayerPath().getPath().set(to_where_index,pawn);
+                    getPlayerPath().getPath().set(pawnIndex,to_where);
+                    move(pawn, to_where);
+                    if(getNumber() >=1 && getNumber() <=4)
+                    {
+                        ImageView from= getPlayerPath().getFreeField().get(getNumber() -1);
+                        pawnIndex= getPlayerPath().getPath().indexOf(pawn);
+                        Integer fromindex= getPlayerPath().getFreeField().indexOf(from);
+                        playerIndexes=getPlayerPawns().getAllPawnsIndexes().get(playerPawns.getColor()).get(i);
+                        ArrayList<Integer> fromIndexes=getPlayerPath().getFreeFieldIndexes().get(fromindex);
+
+                        getPlayerPath().getFreeFieldIndexes().set(fromindex,playerIndexes);
+                        getPlayerPawns().getAllPawnsIndexes().get(playerPawns.getColor()).set(i,fromIndexes);
+                        getPlayerPath().getFreeField().set(getPlayerPath().getFreeField().indexOf(from),pawn);
+                        getPlayerPath().getPath().set(getPlayerPath().getPath().indexOf(pawn),from);
+                        move(pawn,from);
+                        if(playerPath.getFreeField().indexOf(pawn)+1==playerPath.getFreeField().size())
+                        {
+                            getPlayerPawns().deletePawn(getPlayerPawns().getClickList().indexOf(pawn));
+                            pawn.setOnMouseClicked(
+                                    null
+                            );
+                            getPlayerPath().getFreeField().remove(getPlayerPath().getFreeField().size()-1);
+                        }
+                    }
+                }
+                System.out.println("Moved");
+                getPlayerPawns().getChosen().set(i, false);
+                return true;
+
             }
-            return false;
+
+        }
+        return false;
 
     }
 
