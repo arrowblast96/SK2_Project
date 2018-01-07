@@ -130,6 +130,7 @@ public class Player {
                     {
                         if(GridPane.getRowIndex(child)==index.get(0) && GridPane.getColumnIndex(child)==index.get(1)){
                             getPlayerPawns().getPawnsList().add((ImageView)child);
+                            getPlayerPawns().getClickList().add((ImageView)child);
 
                             break;
                         }

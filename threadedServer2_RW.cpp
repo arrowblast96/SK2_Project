@@ -67,12 +67,11 @@ int tura=0;
     while(1)
     {
         int wylosowany=0;
-        while(sesja[th_data->session_number]->sockets.size()==1);
 
+         while(sesja[th_data->session_number]->sockets.size()==1);
 
     	for(int i=0;i<sesja[th_data->session_number]->sockets.size();)
     	{
-
 
 
 
