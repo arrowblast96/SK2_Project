@@ -25,7 +25,7 @@ public class Main extends Application {
     private ObservableList<Node> allChildren;
     private ImageView kolejka;
     private ImageView dice;
-
+    private ImageView kolor;
     private TextField server;
 
 
@@ -51,12 +51,13 @@ public class Main extends Application {
         Controller controller = (Controller) loader.getController();
 
 
-        Scene scene = new Scene(root, 800, 800);
+        Scene scene = new Scene(root, 1000, 1000);
         playground = (GridPane) loader.getNamespace().get("playground");
         System.out.println(playground);
         allChildren = playground.getChildren();
         kolejka=(ImageView) loader.getNamespace().get("kolejka");
         dice=(ImageView) loader.getNamespace().get("dice");
+        kolor=(ImageView) loader.getNamespace().get("kolor");
         primaryStage.setScene(popup);
         poczatek.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -83,7 +84,7 @@ public class Main extends Application {
 
                 TCP_Client client= null;
                 try {
-                    client = new TCP_Client(player,kolejka,dice);
+                    client = new TCP_Client(player,kolejka,dice,kolor);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

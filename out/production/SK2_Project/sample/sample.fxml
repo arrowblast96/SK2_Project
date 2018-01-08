@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -10,8 +12,17 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Twoje pionki -&gt;">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ImageView fx:id="kolor" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
       <ImageView fx:id="kolejka" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="file:/home/osboxes/Desktop/SK2_Project/Pics/twojatura.jpg" />

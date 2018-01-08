@@ -32,6 +32,16 @@ public class Controller{
 
 
 
+    @FXML
+    private ImageView kolor;
+    public ImageView getKolor() {
+        return kolor;
+    }
+
+    public void setKolor(ImageView kolor) {
+        this.kolor = kolor;
+    }
+
     public GridPane getPlayground() {
         return playground;
     }
