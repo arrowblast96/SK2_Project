@@ -176,19 +176,17 @@ public class Player {
                 if (getPlayerPath().getPath().contains(pawn)) {
                         System.out.println("On path");
                         to_where = getPlayerPath().getPath().get(min(getPlayerPath().getPath().indexOf(pawn) + getNumber(), getPlayerPath().getPath().size()-1));
-                       /*if (!playerPawns.getPawnsList().contains(to_where)){
+                       if (!playerPawns.getClickList().contains(to_where)){
                        setNumber(getNumber() - (getPlayerPath().getPath().indexOf(to_where) - getPlayerPath().getPath().indexOf(pawn)));
 
                             ok_path = true;
-                        }*/
-                        setNumber(getNumber() - (getPlayerPath().getPath().indexOf(to_where) - getPlayerPath().getPath().indexOf(pawn)));
+                        }
 
-                        ok_path = true;
 
                 }
 
                 System.out.println(ok_path);
-                if (ok_path == false && getNumber() ==6 && !getPlayerPath().getFreeField().contains(pawn)) {
+                if (ok_path == false && getNumber()==6 && !getPlayerPath().getFreeField().contains(pawn)) {
                     System.out.println("On board");
                     ImageView from= getPlayerPath().getPath().get(0);
 
@@ -218,14 +216,16 @@ public class Player {
                         getPlayerPath().getFreeField().set(pawnIndex+ getNumber(),pawn);
                         getPlayerPath().getFreeField().set(pawnIndex,to_what);
                         move(pawn,to_what);
-                        setNumber(getNumber() -((getPlayerPath().getFreeField().size()-1)-pawnIndex));
-
+                        setNumber(getNumber()-((getPlayerPath().getFreeField().size()-1)-pawnIndex));
+                        System.out.println(getNumber());
                         if(getNumber() ==0)
                         {
-                            getPlayerPawns().deletePawn(getPlayerPawns().getClickList().indexOf(pawn));
-                            pawn.setOnMouseClicked(
+
+                            System.out.println("Usuń pionek");
+                            getPlayerPawns().getClickList().get(getPlayerPawns().getClickList().indexOf(pawn)).setOnMouseClicked(
                                     null
                             );
+                            getPlayerPawns().getClickList().remove(pawn);
                             getPlayerPath().getFreeField().remove(getPlayerPath().getFreeField().size()-1);
                         }
                     }
@@ -244,25 +244,26 @@ public class Player {
                     getPlayerPath().getPath().set(to_where_index,pawn);
                     getPlayerPath().getPath().set(pawnIndex,to_where);
                     move(pawn, to_where);
-                    if(getNumber() >=1 && getNumber() <=4)
+                    if(getNumber() >0 && to_where_index==getPlayerPath().getPath().size()-1)
                     {
                         ImageView from= getPlayerPath().getFreeField().get(getNumber() -1);
-                        pawnIndex= getPlayerPath().getPath().indexOf(pawn);
+                         pawnIndex= getPlayerPath().getPath().indexOf(pawn);
                         Integer fromindex= getPlayerPath().getFreeField().indexOf(from);
                         playerIndexes=getPlayerPawns().getAllPawnsIndexes().get(playerPawns.getColor()).get(i);
                         ArrayList<Integer> fromIndexes=getPlayerPath().getFreeFieldIndexes().get(fromindex);
 
                         getPlayerPath().getFreeFieldIndexes().set(fromindex,playerIndexes);
                         getPlayerPawns().getAllPawnsIndexes().get(playerPawns.getColor()).set(i,fromIndexes);
-                        getPlayerPath().getFreeField().set(getPlayerPath().getFreeField().indexOf(from),pawn);
-                        getPlayerPath().getPath().set(getPlayerPath().getPath().indexOf(pawn),from);
+                        getPlayerPath().getFreeField().set(fromindex,pawn);
+                        getPlayerPath().getPath().set(pawnIndex,from);
                         move(pawn,from);
                         if(playerPath.getFreeField().indexOf(pawn)+1==playerPath.getFreeField().size())
                         {
-                            getPlayerPawns().deletePawn(getPlayerPawns().getClickList().indexOf(pawn));
+
                             pawn.setOnMouseClicked(
                                     null
                             );
+                            getPlayerPawns().deletePawn(getPlayerPawns().getClickList().indexOf(pawn));
                             getPlayerPath().getFreeField().remove(getPlayerPath().getFreeField().size()-1);
                         }
                     }

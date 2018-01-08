@@ -61,26 +61,29 @@ void *ThreadBehavior(void *t_data)
 
     }
 
-char *reader=new char[300];
 
-int tura=0;
+
+
     while(1)
     {
-        int wylosowany=0;
 
-         while(sesja[th_data->session_number]->sockets.size()==1);
 
-    	for(int i=0;i<sesja[th_data->session_number]->sockets.size();)
+         while(sesja[th_data->session_number]->sockets.size()!=4);
+        pthread_mutex_lock(&sesja[th_data->session_number]->mutex);
+        int i=sesja[th_data->session_number]->tura;
+    	do
     	{
 
 
 
-            if(i==tura)
+            if(i==sesja[th_data->session_number]->tura)
             {
-            pthread_mutex_lock(&sesja[th_data->session_number]->mutex);
+            do
+            {
+
     		sesja[th_data->session_number]->buf[i]="Twoja tura\n";
 
-    		check_connection=write(sesja[th_data->session_number]->sockets[tura],sesja[th_data->session_number]->buf[i].c_str(),11);
+    		check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),11);
     		if(check_connection==-1)
     		{
     			pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
@@ -91,6 +94,7 @@ int tura=0;
 
     			continue;
     		}
+    		sesja[th_data->session_number]->buf[i].clear();
             char *ok=new char[11];
     		check_connection=read(sesja[th_data->session_number]->sockets[i],ok,11);
     		if(check_connection==0)
@@ -103,14 +107,14 @@ int tura=0;
     		    continue;
     		}
     		printf("%s\n",ok);
-    		sesja[th_data->session_number]->buf[i].clear();
 
-    		int wylosowany=1+rand()%6;
+
+    		sesja[th_data->session_number]->wylosowany=1+rand()%6;
     		stringstream input;
-    		input << wylosowany;
+    		input << sesja[th_data->session_number]->wylosowany;
     		sesja[th_data->session_number]->buf[i]=input.str();
 
-    		check_connection=write(sesja[th_data->session_number]->sockets[tura],sesja[th_data->session_number]->buf[i].c_str(),1);
+    		check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),1);
             if(check_connection==-1)
             {
                 pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
@@ -121,7 +125,11 @@ int tura=0;
 
                 continue;
             }
-            check_connection=read(sesja[th_data->session_number]->sockets[i],reader,300);
+            sesja[th_data->session_number]->buf[i].clear();
+            if(sesja[th_data->session_number]->wylosowany!=6)
+                        {
+
+            check_connection=read(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->reader,300);
             if(check_connection==0)
             {
                  pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
@@ -131,16 +139,16 @@ int tura=0;
                  printf("Usunięty\n");
                  continue;
             }
-            if(wylosowany!=6)
-            {
+
             i++;
             }
-            pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+            }while(sesja[th_data->session_number]->wylosowany==6);
             }
             else
             {
-            pthread_mutex_lock(&sesja[th_data->session_number]->mutex);
-            check_connection=write(sesja[th_data->session_number]->sockets[i],reader,300);
+
+
+            check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->reader,300);
                 		if(check_connection==-1)
                 		{
                 			pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
@@ -162,27 +170,42 @@ int tura=0;
                                  printf("Usunięty\n");
                                  continue;
                             }
+                stringstream input;
+                    		input << sesja[th_data->session_number]->tura;
+                    		sesja[th_data->session_number]->buf[i]=input.str();
+                check_connection=write(sesja[th_data->session_number]->sockets[i],sesja[th_data->session_number]->buf[i].c_str(),1);
+                                		if(check_connection==-1)
+                                		{
+                                			pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+                                			close(sesja[th_data->session_number]->sockets[i]);
+                                			sesja[th_data->session_number]->sockets.erase(sesja[th_data->session_number]->sockets.begin()+i);
+                                			sesja[th_data->session_number]->buf.erase(sesja[th_data->session_number]->buf.begin()+i);
+                                			printf("Usunięty\n");
 
-                            if(wylosowany!=6)
-                            {
+                                			continue;
+                                		}
+
                             i++;
-                            }
 
 
 
-            pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
+
+
             }
 
     		printf("Wysłany\n");
+            if(i==sesja[th_data->session_number]->sockets.size())
+            {
+            i=0;
+            }
 
-
-    	}
-    	tura++;
-    	if(tura==sesja[th_data->session_number]->sockets.size())
+    	}while(i!=sesja[th_data->session_number]->tura);
+    	sesja[th_data->session_number]->tura++;
+    	if(sesja[th_data->session_number]->tura==sesja[th_data->session_number]->sockets.size())
     	{
-    	tura=0;
+    	sesja[th_data->session_number]->tura=0;
     	}
-
+          pthread_mutex_unlock(&sesja[th_data->session_number]->mutex);
 
     }
 

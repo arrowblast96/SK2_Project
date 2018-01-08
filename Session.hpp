@@ -17,11 +17,15 @@ class Session
 public:
 	vector<int> sockets;
 	vector<string> buf;
+	char *reader=new char[300];
+	int wylosowany=0;
+	int tura=0;
 	pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 	Session()
 	{
 
 	};
+
 
 };
 
